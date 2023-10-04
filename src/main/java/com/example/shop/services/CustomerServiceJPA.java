@@ -1,7 +1,7 @@
-package com.example.services;
+package com.example.shop.services;
 
-import com.example.entities.Customer;
-import com.example.repositories.CustomerRepository;
+import com.example.shop.entities.Customer;
+import com.example.shop.repositories.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

@@ -1,10 +1,9 @@
-package com.example.dataInitializing;
+package com.example.shop.dataInitializing;
 
-import com.example.entities.Customer;
-import com.example.entities.Order;
-import com.example.services.CustomerServiceJPA;
-import com.example.services.OrderServiceJPA;
-import jakarta.annotation.PostConstruct;
+import com.example.shop.entities.Customer;
+import com.example.shop.entities.Order;
+import com.example.shop.services.CustomerServiceJPA;
+import com.example.shop.services.OrderServiceJPA;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

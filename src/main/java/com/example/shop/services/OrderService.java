@@ -1,7 +1,6 @@
-package com.example.services;
+package com.example.shop.services;
 
-import com.example.entities.Order;
-import org.aspectj.weaver.ast.Or;
+import com.example.shop.entities.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -1,9 +1,8 @@
-package com.example.dataInitializing;
+package com.example.shop.dataInitializing;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
 @Component
 @RequiredArgsConstructor

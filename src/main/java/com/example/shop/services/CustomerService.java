@@ -1,6 +1,6 @@
-package com.example.services;
+package com.example.shop.services;
 
-import com.example.entities.Customer;
+import com.example.shop.entities.Customer;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
