@@ -18,7 +18,6 @@ public class AppCommandLineRunner implements CommandLineRunner {
     @Transactional
     @Override
     public void run(String... args) throws Exception {
-        orderService.findByCustomerName("Jan Kowalski").forEach(System.out::println);
         try (Scanner myScanner = new Scanner(System.in);){
             while (true){
                 showAvailableCommands();
