@@ -21,8 +21,6 @@ public class Order implements Comparable<Order>{
     @GeneratedValue(generator = "UUID")
     private UUID id;
 
-    @Version
-    private Integer version;
 
     private String productName;
     private Integer quantity;
@@ -35,17 +33,10 @@ public class Order implements Comparable<Order>{
     public String toString() {
         return "Order{" +
                 "id=" + id +
-                ", version=" + version +
                 ", productName='" + productName + '\'' +
                 ", quantity=" + quantity +
                 ", customer=" + customer.getName() +
                 '}';
-    }
-    @Override
-    public int compareTo(Order otherOrder) {
-        return Comparator.comparing(Order::getProductName)
-                .thenComparing(Order::getQuantity)
-                .compare(this,otherOrder);
     }
 
     @Override
@@ -54,7 +45,6 @@ public class Order implements Comparable<Order>{
         if (!(o instanceof Order order)) return false;
 
         if (getId() != null ? !getId().equals(order.getId()) : order.getId() != null) return false;
-        if (getVersion() != null ? !getVersion().equals(order.getVersion()) : order.getVersion() != null) return false;
         if (getProductName() != null ? !getProductName().equals(order.getProductName()) : order.getProductName() != null)
             return false;
         if (getQuantity() != null ? !getQuantity().equals(order.getQuantity()) : order.getQuantity() != null)
@@ -65,10 +55,17 @@ public class Order implements Comparable<Order>{
     @Override
     public int hashCode() {
         int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getVersion() != null ? getVersion().hashCode() : 0);
         result = 31 * result + (getProductName() != null ? getProductName().hashCode() : 0);
         result = 31 * result + (getQuantity() != null ? getQuantity().hashCode() : 0);
         result = 31 * result + (getCustomer() != null ? getCustomer().hashCode() : 0);
         return result;
     }
+
+    @Override
+    public int compareTo(Order otherOrder) {
+        return Comparator.comparing(Order::getProductName)
+                .thenComparing(Order::getQuantity)
+                .compare(this,otherOrder);
+    }
+
 }
