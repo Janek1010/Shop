@@ -24,7 +24,7 @@ public class Order implements Comparable<Order>{
     private Integer quantity;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer")
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @Override

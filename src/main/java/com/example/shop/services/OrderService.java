@@ -9,4 +9,5 @@ import java.util.List;
 public interface OrderService {
     Order saveNewOrder(Order order);
     List<Order> findAllOrders();
+    List<Order> findByCustomerName(String customerName);
 }

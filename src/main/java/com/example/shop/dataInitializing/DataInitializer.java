@@ -30,8 +30,8 @@ public class DataInitializer {
             Customer customer = Customer.builder().name(n).id(UUID.randomUUID()).age(rand.nextInt(80) + 20).build();
             Customer savedCustomer =  customerServiceJPA.saveNewCustomer(customer);
             for (int i = 0; i < rand.nextInt(5) + 3; i++) {
-                Order savedOrder = orderServiceJPA.saveNewOrder(Order.builder().customer(savedCustomer).id(UUID.randomUUID()).productName(products.get(rand.nextInt(5))).quantity(rand.nextInt(500) + 10).build());
-
+                Order order = Order.builder().customer(savedCustomer).id(UUID.randomUUID()).productName(products.get(rand.nextInt(5))).quantity(rand.nextInt(500) + 10).build();
+                orderServiceJPA.saveNewOrder(order);
             }
         }
     }

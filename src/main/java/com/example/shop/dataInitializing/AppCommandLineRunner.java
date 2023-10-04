@@ -5,6 +5,7 @@ import com.example.shop.services.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Scanner;
 
@@ -12,11 +13,12 @@ import java.util.Scanner;
 @RequiredArgsConstructor
 public class AppCommandLineRunner implements CommandLineRunner {
     private final CustomerService customerService;
-    private OrderService orderService;
+    private final OrderService orderService;
 
+    @Transactional
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("halo halo");
+        orderService.findByCustomerName("Jan Kowalski").forEach(System.out::println);
         try (Scanner myScanner = new Scanner(System.in);){
             while (true){
                 showAvailableCommands();

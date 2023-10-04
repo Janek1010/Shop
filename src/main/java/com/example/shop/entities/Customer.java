@@ -3,9 +3,7 @@ package com.example.shop.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Comparator;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * TO JEST KATEGORIA
@@ -28,7 +26,7 @@ public class Customer implements Comparable<Customer>{
     private int age;
 
     @OneToMany(mappedBy = "customer")
-    private List<Order> orders;
+    private Set<Order> orders = new HashSet<>();
 
     @Override
     public String toString() {

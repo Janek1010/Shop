@@ -23,4 +23,9 @@ public class OrderServiceJPA implements OrderService{
     public List<Order> findAllOrders() {
         return orderRepository.findAll();
     }
+
+    @Override
+    public List<Order> findByCustomerName(String customerName) {
+        return orderRepository.findByCustomer_Name(customerName);
+    }
 }
