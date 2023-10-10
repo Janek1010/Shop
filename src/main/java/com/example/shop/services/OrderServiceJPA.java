@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @Primary
@@ -28,4 +29,15 @@ public class OrderServiceJPA implements OrderService{
     public List<Order> findByCustomerName(String customerName) {
         return orderRepository.findByCustomer_Name(customerName);
     }
+
+    @Override
+    public Boolean existsById(UUID uuid) {
+        return orderRepository.existsById(uuid);
+    }
+
+    @Override
+    public void deleteOrderById(UUID uuid) {
+        orderRepository.deleteById(uuid);
+    }
+
 }

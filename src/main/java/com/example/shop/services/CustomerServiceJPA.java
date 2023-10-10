@@ -23,4 +23,5 @@ public class CustomerServiceJPA implements CustomerService{
     public List<Customer> findAllCustomers() {
         return customerRepository.findAll();
     }
+
 }
