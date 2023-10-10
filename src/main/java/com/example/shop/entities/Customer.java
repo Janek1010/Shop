@@ -15,6 +15,8 @@ import java.util.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@EqualsAndHashCode
 @Table(name = "customers")
 public class Customer implements Comparable<Customer>{
 
@@ -25,34 +27,12 @@ public class Customer implements Comparable<Customer>{
     private String name;
     private int age;
 
+    @Builder.Default
     @OneToMany(mappedBy = "customer")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Set<Order> orders = new HashSet<>();
 
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Customer customer)) return false;
-
-        if (getAge() != customer.getAge()) return false;
-        if (getId() != null ? !getId().equals(customer.getId()) : customer.getId() != null) return false;
-        return getName() != null ? getName().equals(customer.getName()) : customer.getName() == null;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getName() != null ? getName().hashCode() : 0);
-        result = 31 * result + getAge();
-        return result;
-    }
 
     @Override
     public int compareTo(Customer otherCustomer) {

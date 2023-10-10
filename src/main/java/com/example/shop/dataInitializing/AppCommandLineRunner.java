@@ -25,6 +25,7 @@ public class AppCommandLineRunner implements CommandLineRunner {
                     case 1 -> customerService.findAllCustomers().forEach(System.out::println);
                     case 2 -> orderService.findAllOrders().forEach(System.out::println);
                     case 3 -> System.out.println(3);
+                    // pamietac zeby dodac ten fajny trick z setterem od spring guru
                     case 4 -> System.out.println(4);
                     default -> throw new Exception();
                 }
