@@ -19,6 +19,7 @@ public class AppCommandLineRunner implements CommandLineRunner {
     private final CustomerService customerService;
     private final OrderService orderService;
 
+    // Optionale porobić i popatrzec projekt wojcika !!!!
     @Transactional
     @Override
     public void run(String... args) throws Exception {
