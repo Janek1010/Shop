@@ -1,11 +1,9 @@
 package com.example.shop.dataInitializing;
 
-import com.example.shop.entities.Customer;
-import com.example.shop.entities.Order;
-import com.example.shop.services.CustomerService;
-import com.example.shop.services.CustomerServiceJPA;
-import com.example.shop.services.OrderService;
-import com.example.shop.services.OrderServiceJPA;
+import com.example.shop.customer.entities.Customer;
+import com.example.shop.customer.entities.Order;
+import com.example.shop.customer.services.CustomerService;
+import com.example.shop.customer.services.OrderService;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -16,7 +14,9 @@ import java.util.*;
 @RequiredArgsConstructor
 public class DataInitializer {
     private static final List<String> products = List.of("Piwo IPA", "Piwo APA", "Pomidor", "Mango", "Młotek");
-    private static final List<String> names = List.of("Jan Kowalski", "Zbigniew Noga", "Jacek Jackowski", "Marek Markowski", "Jurek Jurkowski");
+    private static final List<String> names = List.of("Jan", "Zbigniew", "Jacek", "Marek", "Jurek");
+    private static final List<String> surnames = List.of("Kowalski", "Noga", "Jackowski", "Markowski", "Jurkowski");
+    private static final List<String> pesels = List.of("64093021258", "77040615488", "01242237333", "51022797418", "65102159889");
 
     private final CustomerService customerServiceJPA;
     private final OrderService orderServiceJPA;
@@ -25,12 +25,20 @@ public class DataInitializer {
     @PostConstruct
     public void initializeData() {
         Random rand = new Random();
-
+        int peselIndex = -1;
+        int surnameIndex = -1;
         for (String n : names) {
-            Customer customer = Customer.builder().name(n).id(UUID.randomUUID()).age(rand.nextInt(80) + 20).build();
+            peselIndex++;
+            surnameIndex++;
+            Customer customer = Customer.builder().name(n).id(UUID.randomUUID()).age(rand.nextInt(80) + 20).surname(surnames.get(surnameIndex)).pesel(pesels.get(peselIndex)).build();
             Customer savedCustomer =  customerServiceJPA.saveNewCustomer(customer);
             for (int i = 0; i < rand.nextInt(5) + 3; i++) {
-                Order order = Order.builder().customer(savedCustomer).id(UUID.randomUUID()).productName(products.get(rand.nextInt(5))).quantity(rand.nextInt(500) + 10).build();
+                Order order = Order.builder()
+                        .customer(savedCustomer)
+                        .id(UUID.randomUUID())
+                        .productName(products.get(rand.nextInt(5)))
+                        .quantity(rand.nextInt(500) + 10)
+                        .build();
                 orderServiceJPA.saveNewOrder(order);
             }
         }

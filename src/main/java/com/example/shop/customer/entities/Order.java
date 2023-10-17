@@ -1,9 +1,8 @@
-package com.example.shop.entities;
+package com.example.shop.customer.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Comparator;
 import java.util.UUID;
 /**
  * TO JEST ELEMENT
@@ -16,7 +15,7 @@ import java.util.UUID;
 @EqualsAndHashCode
 @ToString
 @Table(name = "orders")
-public class Order implements Comparable<Order>{
+public class Order{
 
     public Order(UUID id, String productName, Integer quantity, Customer customer) {
         this.id = id;
@@ -27,9 +26,13 @@ public class Order implements Comparable<Order>{
 
     @Id
     //@GeneratedValue(generator = "UUID")
+    @Column(name = "id")
     private UUID id;
 
+    @Column(name = "product_name")
     private String productName;
+
+    @Column(name = "quantity")
     private Integer quantity;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,13 +42,6 @@ public class Order implements Comparable<Order>{
     public void setCustomer(Customer customer) {
         this.customer = customer;
         customer.getOrders().add(this);
-    }
-
-    @Override
-    public int compareTo(Order otherOrder) {
-        return Comparator.comparing(Order::getProductName)
-                .thenComparing(Order::getQuantity)
-                .compare(this,otherOrder);
     }
 
 }
