@@ -28,7 +28,7 @@ public class Customer implements Comparable<Customer>{
     private int age;
 
     @Builder.Default
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Set<Order> orders = new HashSet<>();
