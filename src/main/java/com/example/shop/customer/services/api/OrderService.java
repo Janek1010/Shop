@@ -9,10 +9,9 @@ import java.util.UUID;
 
 @Service
 public interface OrderService {
-    Order saveNewOrder(Order order);
+    void saveNewOrder(Order order);
     List<Order> findAllOrders();
     List<Order> findByCustomerName(String customerName);
-    Boolean existsById(UUID uuid);
     void deleteOrderById(UUID uuid);
     Optional<Order> findByCustomer_Pesel(String pesel);
 }

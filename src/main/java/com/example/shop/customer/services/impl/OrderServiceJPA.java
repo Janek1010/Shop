@@ -18,8 +18,8 @@ public class OrderServiceJPA implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
-    public Order saveNewOrder(Order order) {
-        return orderRepository.save(order);
+    public void saveNewOrder(Order order) {
+        orderRepository.save(order);
     }
 
     @Override
@@ -32,10 +32,6 @@ public class OrderServiceJPA implements OrderService {
         return orderRepository.findByCustomer_Name(customerName);
     }
 
-    @Override
-    public Boolean existsById(UUID uuid) {
-        return orderRepository.existsById(uuid);
-    }
 
     @Override
     public void deleteOrderById(UUID uuid) {

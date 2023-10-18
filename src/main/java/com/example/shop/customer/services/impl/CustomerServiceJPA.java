@@ -18,17 +18,16 @@ import java.util.UUID;
 @Primary
 @RequiredArgsConstructor
 public class CustomerServiceJPA implements CustomerService {
-    private final CustomerMapper customerMapper;
     private final CustomerRepository customerRepository;
 
     @Override
-    public Customer saveNewCustomer(Customer customer) {
-        return customerRepository.save(customer);
+    public void saveNewCustomer(Customer customer) {
+        customerRepository.save(customer);
     }
 
     @Override
-    public List<CustomerDTO> findAllCustomers() {
-        return customerRepository.findAll().stream().map(customerMapper::customerToCustomerDto).toList();
+    public List<Customer> findAllCustomers() {
+        return customerRepository.findAll();
     }
 
     @Override

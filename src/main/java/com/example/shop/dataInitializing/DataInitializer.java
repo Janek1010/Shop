@@ -31,10 +31,10 @@ public class DataInitializer implements InitializingBean {
             peselIndex++;
             surnameIndex++;
             Customer customer = Customer.builder().name(n).id(UUID.randomUUID()).age(rand.nextInt(80) + 20).surname(surnames.get(surnameIndex)).pesel(pesels.get(peselIndex)).build();
-            Customer savedCustomer =  customerServiceJPA.saveNewCustomer(customer);
+            customerServiceJPA.saveNewCustomer(customer);
             for (int i = 0; i < rand.nextInt(5) + 3; i++) {
                 Order order = Order.builder()
-                        .customer(savedCustomer)
+                        .customer(customer)
                         .id(UUID.randomUUID())
                         .productName(products.get(rand.nextInt(5)))
                         .quantity(rand.nextInt(500) + 10)
