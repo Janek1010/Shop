@@ -40,4 +40,10 @@ public class CustomerServiceJPA implements CustomerService {
         return customerRepository.findCustomerByPesel(pesel);
     }
 
+    @Override
+    public void updateCustomerById(UUID uuid, Customer customer) {
+        customer.setId(uuid);
+        customerRepository.save(customer);
+    }
+
 }

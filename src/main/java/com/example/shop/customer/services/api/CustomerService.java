@@ -14,4 +14,6 @@ public interface CustomerService {
     List<Customer> findAllCustomers();
     Optional<Customer> findCustomerById(UUID uuid);
     Optional<Customer> findCustomerByPesel(String pesel);
+
+    void updateCustomerById(UUID uuid, Customer customer);
 }
