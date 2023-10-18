@@ -21,7 +21,6 @@ import java.util.*;
 public class Customer{
 
     @Id
-    //@GeneratedValue(generator = "UUID")
     @Column(name = "id")
     private UUID id;
 
@@ -36,10 +35,9 @@ public class Customer{
     @Column(name = "age")
     private int age;
 
-    @Builder.Default
-    @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "customer")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private List<Order> orders = new ArrayList<>();
+    private List<Order> orders;
 
 }

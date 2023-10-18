@@ -1,3 +1,7 @@
 ### Get all customers
 
 GET http://localhost:8080/api/customers
+
+### Get customer by Id , you should change id
+
+GET http://localhost:8080/api/customers/feab29f8-3487-4e08-8489-8be2ecea160a

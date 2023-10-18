@@ -12,20 +12,14 @@ import java.util.UUID;
 @Builder
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @ToString
 @Table(name = "orders")
 public class Order{
 
-    public Order(UUID id, String productName, Integer quantity, Customer customer) {
-        this.id = id;
-        this.productName = productName;
-        this.quantity = quantity;
-        this.setCustomer(customer);
-    }
 
     @Id
-    //@GeneratedValue(generator = "UUID")
     @Column(name = "id")
     private UUID id;
 
@@ -39,9 +33,5 @@ public class Order{
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-        customer.getOrders().add(this);
-    }
 
 }
