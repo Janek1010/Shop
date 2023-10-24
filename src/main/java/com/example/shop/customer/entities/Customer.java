@@ -4,6 +4,7 @@ import com.example.shop.order.entity.Order;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.*;
 
 /**
@@ -19,7 +20,7 @@ import java.util.*;
 @ToString
 @EqualsAndHashCode
 @Table(name = "customers")
-public class Customer{
+public class Customer implements Serializable {
 
     @Id
     @Column(name = "id")

@@ -4,16 +4,36 @@ GET http://localhost:8080/api/customers
 
 ### Get customer by Id , you should change id
 
-GET http://localhost:8080/api/customers/98643fc8-29f7-4ee1-8812-e0620d33ac07
+GET http://localhost:8080/api/customers/72310089-a874-47e1-b0f1-0a54f09121cf
 
 ### create/update
-PUT http://localhost:8080/api/customers/98643fc8-29f7-4ee1-8812-e0620d33ac07
+PUT http://localhost:8080/api/customers/72310089-a874-47e1-b0f1-0a54f09121cf
 Content-Type: application/json
 
 {
-  "customer": "98643fc8-29f7-4ee1-8812-e0620d33ac07",
+  "customer": "72310089-a874-47e1-b0f1-0a54f09121cf",
   "pesel": "95011903212",
   "name": "Testowy 2",
   "surname": "Testariusz",
   "age": 12
 }
+
+### Get all orders
+
+GET http://localhost:8080/api/orders
+
+### Get order by Id , you should change id
+
+GET http://localhost:8080/api/orders/72310089-a874-47e1-b0f1-0a54f09121cf
+
+### create/update
+#PUT http://localhost:8080/api/orders/72310089-a874-47e1-b0f1-0a54f09121cf
+#Content-Type: application/json
+#
+#{
+#  "customer": "72310089-a874-47e1-b0f1-0a54f09121cf",
+#  "pesel": "95011903212",
+#  "name": "Testowy 2",
+#  "surname": "Testariusz",
+#  "age": 12
+#}

@@ -76,18 +76,22 @@ class CustomerControllerIT {
                 .andExpect(status().isNotFound());
     }
     @Test
-    @Disabled
+    //@Disabled
     @DisplayName("Should update customer sending body")
     void putCustomer() throws Exception {
+
         Customer customer = customerRepository.findAll().get(0);
         customer.setName("New name");
         customer.setSurname("New surname");
         customer.setAge(99);
+        System.out.println(customer.getOrders().size());
+
         mockMvc.perform(put("/api/customers/"+customer.getId().toString())
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(customer)))
                 .andExpect(status().isOk());
 
+        System.out.println("pomiedzy");
         mockMvc.perform(get("/api/customers/"+customer.getId().toString()))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.id").value(customer.getId().toString()))
@@ -95,6 +99,7 @@ class CustomerControllerIT {
                 .andExpect(jsonPath("$.surname").value(customer.getSurname()))
                 .andExpect(jsonPath("$.pesel").value(customer.getPesel()))
                 .andExpect(jsonPath("$.age").value(customer.getAge()));
+        System.out.println("po");
     }
 
 
