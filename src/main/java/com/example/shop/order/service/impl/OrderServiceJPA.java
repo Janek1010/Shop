@@ -18,7 +18,7 @@ public class OrderServiceJPA implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
-    public void saveNewOrder(Order order) {
+    public void saveOrder(Order order) {
         orderRepository.save(order);
     }
 

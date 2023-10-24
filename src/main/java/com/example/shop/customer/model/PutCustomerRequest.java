@@ -12,7 +12,6 @@ import java.util.UUID;
 @ToString
 @EqualsAndHashCode
 public class PutCustomerRequest {
-    private UUID id;
     private String pesel;
     private String name;
     private String surname;

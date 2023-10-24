@@ -25,7 +25,7 @@ public class OrderController {
 
     @GetMapping(ORDER_PATH)
     public ResponseEntity<GetOrdersResponse> getOrders(){
-       return null;
+       return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findAllOrders().stream().map(orderMapper::orderToOrderDto).toList()).build());
     }
     @GetMapping(ORDER_PATH_ID)
     public ResponseEntity<GetOrderResponse> getOrder(@PathVariable("orderId") UUID uuid){
@@ -33,9 +33,8 @@ public class OrderController {
     }
     @PutMapping(ORDER_PATH_ID)
     public ResponseEntity putOrder(@PathVariable("orderId") UUID uuid, @RequestBody PutOrderRequest request){
-        return null;
-        //customerService.updateCustomerById(uuid, customerMapper.putCustomerRequestToCustomer(request));
-        //return ResponseEntity.ok().build();
+        orderService.saveOrder(orderMapper.putOrderRequestToOrder(uuid, request));
+        return ResponseEntity.ok().build();
     }
 }
 

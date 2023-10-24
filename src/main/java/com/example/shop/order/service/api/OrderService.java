@@ -9,10 +9,11 @@ import java.util.UUID;
 
 @Service
 public interface OrderService {
-    void saveNewOrder(Order order);
+    void saveOrder(Order order);
     List<Order> findAllOrders();
     List<Order> findByCustomerName(String customerName);
     Optional<Order> findOrderById(UUID uuid);
     void deleteOrderById(UUID uuid);
     Optional<Order> findByCustomer_Pesel(String pesel);
+
 }

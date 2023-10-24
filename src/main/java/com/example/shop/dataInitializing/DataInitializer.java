@@ -39,7 +39,7 @@ public class DataInitializer implements InitializingBean {
                         .productName(products.get(rand.nextInt(5)))
                         .quantity(rand.nextInt(500) + 10)
                         .build();
-                orderServiceJPA.saveNewOrder(order);
+                orderServiceJPA.saveOrder(order);
             }
         }
     }
