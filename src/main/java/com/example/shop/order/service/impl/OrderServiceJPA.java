@@ -1,8 +1,8 @@
-package com.example.shop.customer.services.impl;
+package com.example.shop.order.service.impl;
 
-import com.example.shop.customer.entities.Order;
-import com.example.shop.customer.repositories.OrderRepository;
-import com.example.shop.customer.services.api.OrderService;
+import com.example.shop.order.entity.Order;
+import com.example.shop.order.repository.OrderRepository;
+import com.example.shop.order.service.api.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

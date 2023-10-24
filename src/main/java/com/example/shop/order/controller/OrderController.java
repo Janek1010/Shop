@@ -1,6 +1,6 @@
-package com.example.shop.customer.controller;
+package com.example.shop.order.controller;
 
-import com.example.shop.customer.services.api.OrderService;
+import com.example.shop.order.service.api.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 

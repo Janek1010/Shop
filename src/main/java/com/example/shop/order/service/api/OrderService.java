@@ -1,6 +1,6 @@
-package com.example.shop.customer.services.api;
+package com.example.shop.order.service.api;
 
-import com.example.shop.customer.entities.Order;
+import com.example.shop.order.entity.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

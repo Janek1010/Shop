@@ -1,11 +1,8 @@
-package com.example.shop.customer.services.impl;
+package com.example.shop.customer.service.impl;
 
 import com.example.shop.customer.entities.Customer;
-import com.example.shop.customer.mappers.CustomerMapper;
-import com.example.shop.customer.model.dto.CustomerDTO;
-import com.example.shop.customer.repositories.CustomerRepository;
-import com.example.shop.customer.services.api.CustomerService;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.example.shop.customer.repository.CustomerRepository;
+import com.example.shop.customer.service.api.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;

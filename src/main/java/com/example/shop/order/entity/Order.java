@@ -1,5 +1,6 @@
-package com.example.shop.customer.entities;
+package com.example.shop.order.entity;
 
+import com.example.shop.customer.entities.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 

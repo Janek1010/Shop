@@ -3,7 +3,7 @@ package com.example.shop.customer.controller;
 
 import com.example.shop.customer.entities.Customer;
 import com.example.shop.customer.mappers.CustomerMapper;
-import com.example.shop.customer.repositories.CustomerRepository;
+import com.example.shop.customer.repository.CustomerRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
 import java.util.UUID;

@@ -4,15 +4,13 @@ import com.example.shop.customer.mappers.CustomerMapper;
 import com.example.shop.customer.model.GetCustomerResponse;
 import com.example.shop.customer.model.GetCustomersResponse;
 import com.example.shop.customer.model.PutCustomerRequest;
-import com.example.shop.customer.model.dto.CustomerDTO;
-import com.example.shop.customer.services.api.CustomerService;
+import com.example.shop.customer.service.api.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.List;
 import java.util.UUID;
 
 @RestController

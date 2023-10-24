@@ -1,9 +1,9 @@
 package com.example.shop.dataInitializing;
 
 import com.example.shop.customer.entities.Customer;
-import com.example.shop.customer.entities.Order;
-import com.example.shop.customer.services.api.CustomerService;
-import com.example.shop.customer.services.api.OrderService;
+import com.example.shop.order.entity.Order;
+import com.example.shop.customer.service.api.CustomerService;
+import com.example.shop.order.service.api.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
