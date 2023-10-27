@@ -32,9 +32,14 @@ public class OrderController {
         return ResponseEntity.ok(orderService.findOrderById(uuid).map(orderMapper::orderToGetOrderResponse).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
     @PutMapping(ORDER_PATH_ID)
-    public ResponseEntity putOrder(@PathVariable("orderId") UUID uuid, @RequestBody PutOrderRequest request){
+    public ResponseEntity<Void> putOrder(@PathVariable("orderId") UUID uuid, @RequestBody PutOrderRequest request){
         orderService.saveOrder(orderMapper.putOrderRequestToOrder(uuid, request));
         return ResponseEntity.ok().build();
+    }
+    @DeleteMapping(ORDER_PATH_ID)
+    public ResponseEntity<Void> deleteOrder(@PathVariable("orderId") UUID uuid){
+        orderService.deleteOrderById(uuid);
+        return ResponseEntity.noContent().build();
     }
 }
 

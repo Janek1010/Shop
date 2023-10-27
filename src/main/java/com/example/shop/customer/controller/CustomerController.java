@@ -31,8 +31,13 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.findCustomerById(uuid).map(customerMapper::customerToGetCustomerResponse).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND)));
     }
     @PutMapping(CUSTOMER_PATH_ID)
-    public ResponseEntity putCustomer(@PathVariable("customerId") UUID uuid, @RequestBody PutCustomerRequest request){
+    public ResponseEntity<Void> putCustomer(@PathVariable("customerId") UUID uuid, @RequestBody PutCustomerRequest request){
         customerService.updateCustomerById(uuid, customerMapper.putCustomerRequestToCustomer(request));
         return ResponseEntity.ok().build();
+    }
+    @DeleteMapping(CUSTOMER_PATH_ID)
+    public ResponseEntity<Void> deleteCustomer(@PathVariable("customerId") UUID uuid){
+        customerService.deleteCustomerById(uuid);
+        return ResponseEntity.accepted().build();
     }
 }

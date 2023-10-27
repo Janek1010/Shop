@@ -37,7 +37,7 @@ public class Customer implements Serializable {
     @Column(name = "age")
     private int age;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private List<Order> orders;

@@ -15,4 +15,5 @@ public interface CustomerService {
     Optional<Customer> findCustomerByPesel(String pesel);
 
     void updateCustomerById(UUID uuid, Customer customer);
+    void deleteCustomerById(UUID uuid);
 }
