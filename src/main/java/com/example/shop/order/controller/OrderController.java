@@ -24,9 +24,14 @@ public class OrderController {
 
 
     @GetMapping(ORDER_PATH)
-    public ResponseEntity<GetOrdersResponse> getOrders(){
-       return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findAllOrders().stream().map(orderMapper::orderToOrderDto).toList()).build());
-    }
+    public ResponseEntity<GetOrdersResponse> getOrders(@RequestParam(required = false) String pesel){
+        if (pesel == null){
+            return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findAllOrders().stream().map(orderMapper::orderToOrderDto).toList()).build());
+        } else {
+            return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findByCustomer_Pesel(pesel).stream().map(orderMapper::orderToOrderDto).toList()).build());
+
+        }
+       }
     @GetMapping(ORDER_PATH_ID)
     public ResponseEntity<GetOrderResponse> getOrder(@PathVariable("orderId") UUID uuid){
         return ResponseEntity.ok(orderService.findOrderById(uuid).map(orderMapper::orderToGetOrderResponse).orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND)));

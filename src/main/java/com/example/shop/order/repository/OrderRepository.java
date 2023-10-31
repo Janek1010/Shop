@@ -11,6 +11,6 @@ import java.util.UUID;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, UUID> {
     List<Order> findByCustomer_Name(String customerName);
-    Optional<Order> findByCustomer_Pesel(String pesel);
+    List<Order> findByCustomer_Pesel(String pesel);
 
 }

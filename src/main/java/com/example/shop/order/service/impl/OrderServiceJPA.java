@@ -44,7 +44,7 @@ public class OrderServiceJPA implements OrderService {
     }
 
     @Override
-    public Optional<Order> findByCustomer_Pesel(String pesel) {
+    public List<Order> findByCustomer_Pesel(String pesel) {
         return orderRepository.findByCustomer_Pesel(pesel);
     }
 

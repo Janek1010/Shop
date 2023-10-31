@@ -14,6 +14,6 @@ public interface OrderService {
     List<Order> findByCustomerName(String customerName);
     Optional<Order> findOrderById(UUID uuid);
     void deleteOrderById(UUID uuid);
-    Optional<Order> findByCustomer_Pesel(String pesel);
+    List<Order> findByCustomer_Pesel(String pesel);
 
 }

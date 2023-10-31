@@ -4,6 +4,7 @@ import com.example.shop.customer.mappers.CustomerMapper;
 import com.example.shop.customer.model.GetCustomerResponse;
 import com.example.shop.customer.model.GetCustomersResponse;
 import com.example.shop.customer.model.PutCustomerRequest;
+import com.example.shop.customer.model.dto.CustomerDTO;
 import com.example.shop.customer.service.api.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
