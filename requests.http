@@ -19,6 +19,10 @@ Content-Type: application/json
 
 GET http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31bc4
 
+### Gaaaa
+
+GET http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31bc4/orders
+
 ### delete customer
 
 DELETE http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31bc4
@@ -32,11 +36,11 @@ GET http://localhost:8080/api/orders?pesel=95011903212
 
 ### create/update
 
-PUT http://localhost:8080/api/orders/72310089-a874-47e1-b0f1-0a54f0912124
+PUT http://localhost:8080/api/orders/72310089-a874-47e1-b0f1-0a54f0912113
 Content-Type: application/json
 
 {
-  "productName": "krzeslo 2",
+  "productName": "aaaa 11",
   "quantity": 11,
   "customer": "68f222d6-a76d-44c0-afec-474489e31bc4"
 }

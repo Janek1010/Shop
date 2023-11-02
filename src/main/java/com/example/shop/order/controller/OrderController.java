@@ -1,6 +1,5 @@
 package com.example.shop.order.controller;
 
-import com.example.shop.customer.model.GetCustomersResponse;
 import com.example.shop.order.mappers.OrderMapper;
 import com.example.shop.order.model.GetOrderResponse;
 import com.example.shop.order.model.GetOrdersResponse;
@@ -23,14 +22,14 @@ public class OrderController {
     private final OrderService orderService;
 
 
-    @GetMapping(ORDER_PATH)
-    public ResponseEntity<GetOrdersResponse> getOrders(@RequestParam(required = false) String pesel){
-        if (pesel == null){
-            return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findAllOrders().stream().map(orderMapper::orderToOrderDto).toList()).build());
-        } else {
-            return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findByCustomer_Pesel(pesel).stream().map(orderMapper::orderToOrderDto).toList()).build());
+    @GetMapping("/api/customers/{customerId}/orders")
+    public ResponseEntity<GetOrdersResponse> getOrdersOfCustomer(@PathVariable("customerId") UUID uuid){
+        return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findOrdersByCustomer_Id(uuid).stream().map(orderMapper::orderToOrderDto).toList()).build());
+    }
 
-        }
+    @GetMapping(ORDER_PATH)
+    public ResponseEntity<GetOrdersResponse> getOrders(){
+            return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findAllOrders().stream().map(orderMapper::orderToOrderDto).toList()).build());
        }
     @GetMapping(ORDER_PATH_ID)
     public ResponseEntity<GetOrderResponse> getOrder(@PathVariable("orderId") UUID uuid){

@@ -6,6 +6,7 @@ import com.example.shop.customer.model.GetCustomersResponse;
 import com.example.shop.customer.model.PutCustomerRequest;
 import com.example.shop.customer.model.dto.CustomerDTO;
 import com.example.shop.customer.service.api.CustomerService;
+import com.example.shop.order.service.api.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +22,6 @@ public class CustomerController {
     public final String CUSTOMER_PATH_ID = CUSTOMER_PATH +"/{customerId}";
     private final CustomerMapper customerMapper;
     private final CustomerService customerService;
-
-
     @GetMapping(CUSTOMER_PATH)
     public ResponseEntity<GetCustomersResponse> getCustomers(){
         return ResponseEntity.ok(GetCustomersResponse.builder().customers(customerService.findAllCustomers().stream().map(customerMapper::customerToCustomerDto).toList()).build());

@@ -18,6 +18,11 @@ public class OrderServiceJPA implements OrderService {
     private final OrderRepository orderRepository;
 
     @Override
+    public List<Order> findOrdersByCustomer_Id(UUID uuid) {
+        return orderRepository.findByCustomer_Id(uuid);
+    }
+
+    @Override
     public void saveOrder(Order order) {
         orderRepository.save(order);
     }
@@ -47,5 +52,6 @@ public class OrderServiceJPA implements OrderService {
     public List<Order> findByCustomer_Pesel(String pesel) {
         return orderRepository.findByCustomer_Pesel(pesel);
     }
+
 
 }
