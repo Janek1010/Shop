@@ -1,9 +1,6 @@
 package com.example.shop.order.mappers;
 
 import com.example.shop.customer.entities.Customer;
-import com.example.shop.customer.model.GetCustomerResponse;
-import com.example.shop.customer.model.PutCustomerRequest;
-import com.example.shop.customer.model.dto.CustomerDTO;
 import com.example.shop.order.entity.Order;
 import com.example.shop.order.model.GetOrderResponse;
 import com.example.shop.order.model.PutOrderRequest;

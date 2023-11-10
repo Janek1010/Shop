@@ -17,15 +17,6 @@ import java.util.UUID;
 public class CustomerServiceJPA implements CustomerService {
     private final CustomerRepository customerRepository;
 
-    @Override
-    public void saveNewCustomer(Customer customer) {
-        customerRepository.save(customer);
-    }
-
-    @Override
-    public List<Customer> findAllCustomers() {
-        return customerRepository.findAll();
-    }
 
     @Override
     public Optional<Customer> findCustomerById(UUID uuid) {
@@ -33,18 +24,12 @@ public class CustomerServiceJPA implements CustomerService {
     }
 
     @Override
-    public Optional<Customer> findCustomerByPesel(String pesel) {
-        return customerRepository.findCustomerByPesel(pesel);
-    }
-
-    @Override
-    public void updateCustomerById(UUID uuid, Customer customer) {
-        customer.setId(uuid);
+    public void createCustomer(Customer customer) {
         customerRepository.save(customer);
     }
 
     @Override
     public void deleteCustomerById(UUID uuid) {
-        customerRepository.deleteById(uuid);
+        customerRepository.findById(uuid).ifPresent(customerRepository::delete);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.shop.customer.service.impl;
 
 import com.example.shop.customer.entities.Customer;
+import com.example.shop.customer.event.repository.impl.CustomerEventRestRepository;
 import com.example.shop.customer.repository.CustomerRepository;
 import com.example.shop.customer.service.api.CustomerService;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class CustomerServiceJPA implements CustomerService {
     private final CustomerRepository customerRepository;
+    private final CustomerEventRestRepository customerEventRestRepository;
 
     @Override
     public void saveNewCustomer(Customer customer) {
@@ -32,10 +34,6 @@ public class CustomerServiceJPA implements CustomerService {
         return customerRepository.findById(uuid);
     }
 
-    @Override
-    public Optional<Customer> findCustomerByPesel(String pesel) {
-        return customerRepository.findCustomerByPesel(pesel);
-    }
 
     @Override
     public void updateCustomerById(UUID uuid, Customer customer) {
@@ -46,5 +44,7 @@ public class CustomerServiceJPA implements CustomerService {
     @Override
     public void deleteCustomerById(UUID uuid) {
         customerRepository.deleteById(uuid);
+        customerEventRestRepository.delete(uuid);
+
     }
 }

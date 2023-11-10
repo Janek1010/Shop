@@ -6,7 +6,6 @@ import com.example.shop.customer.model.GetCustomersResponse;
 import com.example.shop.customer.model.PutCustomerRequest;
 import com.example.shop.customer.model.dto.CustomerDTO;
 import com.example.shop.customer.service.api.CustomerService;
-import com.example.shop.order.service.api.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

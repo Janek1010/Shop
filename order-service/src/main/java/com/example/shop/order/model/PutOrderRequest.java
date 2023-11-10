@@ -1,6 +1,5 @@
 package com.example.shop.order.model;
 
-import com.example.shop.customer.model.dto.CustomerDTO;
 import lombok.*;
 
 import java.util.UUID;

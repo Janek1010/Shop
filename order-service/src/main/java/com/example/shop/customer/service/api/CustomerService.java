@@ -9,11 +9,7 @@ import java.util.UUID;
 
 @Service
 public interface CustomerService {
-    void saveNewCustomer(Customer customer);
-    List<Customer> findAllCustomers();
     Optional<Customer> findCustomerById(UUID uuid);
-    Optional<Customer> findCustomerByPesel(String pesel);
-
-    void updateCustomerById(UUID uuid, Customer customer);
+    void createCustomer(Customer customer);
     void deleteCustomerById(UUID uuid);
 }

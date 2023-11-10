@@ -1,4 +1,4 @@
-package com.example.shop.dataInitializing;
+package com.example.shop.initialize;
 
 import com.example.shop.customer.entities.Customer;
 import com.example.shop.order.entity.Order;

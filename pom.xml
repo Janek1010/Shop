@@ -12,6 +12,7 @@
     <modules>
         <module>customer-service</module>
         <module>order-service</module>
+        <module>shop-gateway</module>
     </modules>
 
     <groupId>com.example</groupId>

@@ -32,26 +32,17 @@ public class OrderServiceJPA implements OrderService {
         return orderRepository.findAll();
     }
 
-    @Override
-    public List<Order> findByCustomerName(String customerName) {
-        return orderRepository.findByCustomer_Name(customerName);
-    }
 
     @Override
     public Optional<Order> findOrderById(UUID uuid) {
         return orderRepository.findById(uuid);
     }
 
-
     @Override
     public void deleteOrderById(UUID uuid) {
         orderRepository.deleteById(uuid);
     }
 
-    @Override
-    public List<Order> findByCustomer_Pesel(String pesel) {
-        return orderRepository.findByCustomer_Pesel(pesel);
-    }
 
 
 }

@@ -11,10 +11,8 @@ import java.util.UUID;
 public interface OrderService {
     void saveOrder(Order order);
     List<Order> findAllOrders();
-    List<Order> findByCustomerName(String customerName);
     Optional<Order> findOrderById(UUID uuid);
     void deleteOrderById(UUID uuid);
-    List<Order> findByCustomer_Pesel(String pesel);
     List<Order> findOrdersByCustomer_Id(UUID uuid);
 
 }

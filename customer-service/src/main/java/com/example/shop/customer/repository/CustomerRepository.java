@@ -9,5 +9,4 @@ import java.util.UUID;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, UUID> {
-    Optional<Customer> findCustomerByPesel(String pesel);
 }
