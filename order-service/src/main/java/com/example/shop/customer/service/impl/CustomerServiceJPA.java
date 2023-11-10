@@ -32,4 +32,9 @@ public class CustomerServiceJPA implements CustomerService {
     public void deleteCustomerById(UUID uuid) {
         customerRepository.findById(uuid).ifPresent(customerRepository::delete);
     }
+
+    @Override
+    public List<Customer> findAllCustomers() {
+        return customerRepository.findAll();
+    }
 }

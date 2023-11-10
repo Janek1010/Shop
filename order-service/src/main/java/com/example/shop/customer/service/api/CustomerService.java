@@ -12,4 +12,5 @@ public interface CustomerService {
     Optional<Customer> findCustomerById(UUID uuid);
     void createCustomer(Customer customer);
     void deleteCustomerById(UUID uuid);
+    List<Customer> findAllCustomers();
 }

@@ -11,9 +11,28 @@ import java.util.UUID;
 
 @Mapper
 public interface OrderMapper {
-    Order orderDtoToOrder(OrderDTO orderDTO);
-    OrderDTO orderToOrderDto(Order order);
-    GetOrderResponse orderToGetOrderResponse(Order order);
+    default OrderDTO orderToOrderDto(Order order){
+        if (order == null) {
+            return null;
+        }
+        return OrderDTO.builder()
+                .id(order.getId())
+                .productName(order.getProductName())
+                .quantity(order.getQuantity())
+                .customer( order.getCustomer().getId())
+                .build();
+    }
+    default GetOrderResponse orderToGetOrderResponse(Order order){
+        if (order == null) {
+            return null;
+        }
+        return GetOrderResponse.builder()
+                .id(order.getId())
+                .productName(order.getProductName())
+                .quantity(order.getQuantity())
+                .customer( order.getCustomer().getId())
+                .build();
+    }
     default Order putOrderRequestToOrder(UUID uuid, PutOrderRequest putOrderRequest) {
         if (putOrderRequest == null) {
             return null;

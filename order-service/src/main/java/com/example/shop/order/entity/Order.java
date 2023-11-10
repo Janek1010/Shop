@@ -4,6 +4,7 @@ import com.example.shop.customer.entities.Customer;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.UUID;
 /**
  * TO JEST ELEMENT
@@ -17,7 +18,7 @@ import java.util.UUID;
 @EqualsAndHashCode
 @ToString
 @Table(name = "orders")
-public class Order{
+public class Order implements Serializable {
 
 
     @Id
@@ -30,8 +31,8 @@ public class Order{
     @Column(name = "quantity")
     private Integer quantity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
+    @ManyToOne
+    @JoinColumn(name = "customer")
     private Customer customer;
 
 

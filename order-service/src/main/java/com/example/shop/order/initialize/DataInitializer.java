@@ -111,6 +111,9 @@ public class DataInitializer implements InitializingBean {
             orderServiceJPA.saveOrder(dzbanek);
             orderServiceJPA.saveOrder(sciana);
 
+
+            orderServiceJPA.findAllOrders().forEach(System.out::println);
+            customerServiceJPA.findAllCustomers().forEach(System.out::println);
         }
     }
 }

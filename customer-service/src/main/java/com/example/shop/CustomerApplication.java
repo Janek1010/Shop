@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class ShopApplication {
+public class CustomerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ShopApplication.class, args);
+        SpringApplication.run(CustomerApplication.class, args);
     }
     @Bean
     public RestTemplate restTemplate(@Value("${shop.order.url}") String baseUrl) {

@@ -17,6 +17,7 @@ import java.util.*;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode
 @ToString
 @Table(name = "customers")
 public class Customer implements Serializable {
@@ -27,6 +28,7 @@ public class Customer implements Serializable {
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.REMOVE)
     @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private List<Order> orders;
 
 }

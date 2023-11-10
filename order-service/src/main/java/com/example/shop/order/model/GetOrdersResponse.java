@@ -3,6 +3,7 @@ package com.example.shop.order.model;
 import com.example.shop.order.model.dto.OrderDTO;
 import lombok.*;
 
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
