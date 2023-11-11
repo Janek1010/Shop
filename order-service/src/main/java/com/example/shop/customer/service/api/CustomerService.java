@@ -9,8 +9,9 @@ import java.util.UUID;
 
 @Service
 public interface CustomerService {
-    Optional<Customer> findCustomerById(UUID uuid);
-    void createCustomer(Customer customer);
-    void deleteCustomerById(UUID uuid);
-    List<Customer> findAllCustomers();
+    Optional<Customer> find(UUID id);
+
+    void create(Customer customer);
+
+    void delete(UUID id);
 }

@@ -24,6 +24,7 @@ public class OrderController {
 
     @GetMapping("/api/customers/{customerId}/orders")
     public ResponseEntity<GetOrdersResponse> getOrdersOfCustomer(@PathVariable("customerId") UUID uuid) {
+        System.out.println("szukam orderow dla uzytkownika o id " + uuid);
         return ResponseEntity.ok(GetOrdersResponse.builder().orders(orderService.findOrdersByCustomer_Id(uuid).stream().map(orderMapper::orderToOrderDto).toList()).build());
     }
 
@@ -46,6 +47,7 @@ public class OrderController {
     }
 
     @DeleteMapping(ORDER_PATH_ID)
+
     public ResponseEntity<Void> deleteOrder(@PathVariable("orderId") UUID uuid) {
         orderService.deleteOrderById(uuid);
         return ResponseEntity.noContent().build();

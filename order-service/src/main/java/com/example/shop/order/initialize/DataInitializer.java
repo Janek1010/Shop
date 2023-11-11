@@ -39,10 +39,10 @@ public class DataInitializer implements InitializingBean {
                     .id(UUID.fromString("2d9b1e8c-67c5-4188-a911-5f064a63d8ef"))
                     .build();
 
-            customerServiceJPA.createCustomer(customer);
-            customerServiceJPA.createCustomer(customer1);
-            customerServiceJPA.createCustomer(customer2);
-            customerServiceJPA.createCustomer(customer3);
+            customerServiceJPA.create(customer);
+            customerServiceJPA.create(customer1);
+            customerServiceJPA.create(customer2);
+            customerServiceJPA.create(customer3);
 
             Order krzeslo = Order.builder()
                     .id(UUID.fromString("525d3e7b-bb1f-4c13-bf17-926d1a12e4c0"))
@@ -111,9 +111,6 @@ public class DataInitializer implements InitializingBean {
             orderServiceJPA.saveOrder(dzbanek);
             orderServiceJPA.saveOrder(sciana);
 
-
-            orderServiceJPA.findAllOrders().forEach(System.out::println);
-            customerServiceJPA.findAllCustomers().forEach(System.out::println);
         }
     }
 }

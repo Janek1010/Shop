@@ -7,7 +7,7 @@ GET http://localhost:8080/api/customers
 GET http://localhost:8080/api/customers/f5875513-bf7b-4ae1-b8a5-5b70a1b90e76
 
 ### create/update
-PUT http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31ef4
+PUT http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31ec4
 Content-Type: application/json
 
 {
@@ -17,40 +17,44 @@ Content-Type: application/json
   "age": 12
 }
 
-### delete customer
-
-DELETE http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31ef4
-
 ### get deleted customer
 
-GET http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31ef4
+GET http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31ec4
+
+### delete customer
+
+DELETE http://localhost:8080/api/customers/68f222d6-a76d-44c0-afec-474489e31ec4
 
 
+
+// ordery ----------------------------
 
 
 ### Get all orders
 
-GET http://localhost:8081/api/orders
+GET http://localhost:8080/api/orders
 
 ### get order by Id
-GET http://localhost:8081/api/orders/525d3e7b-bb1f-4c13-bf17-286d1a12e4c0
+GET http://localhost:8080/api/orders/525d3e7b-bb1f-4c13-bf17-926d1a12e4c0
 
 ### create/update
 
-PUT http://localhost:8081/api/orders/72310089-a874-47e1-b0f1-0a54f0912113
+PUT http://localhost:8080/api/orders/62310089-a874-47e1-b0f1-0a54f0912112
 Content-Type: application/json
 
 {
-  "productName": "aaaa 11",
+  "productName": "testowy produkt",
   "quantity": 11,
-  "customer": "2d9b1e8c-67c5-4188-a911-5f064a63d8ef"
+  "customer": "68f222d6-a76d-44c0-afec-474489e31ec4"
 }
 
-### Get order by Id , you should change id
-
-GET http://localhost:8080/api/orders/72310089-a874-47e1-b0f1-0a54f09121cd
-
+### get order by Id
+GET http://localhost:8080/api/orders/62310089-a874-47e1-b0f1-0a54f0912112
 
 ### Deleting
 
-DELETE http://localhost:8080/api/orders/72310089-a874-47e1-b0f1-0a54f09121cf
+DELETE http://localhost:8080/api/orders/62310089-a874-47e1-b0f1-0a54f0912112
+
+### GET orders by customer
+
+GET http://localhost:8080/api/customers/2d9b1e8c-67c5-4188-a911-5f064a63d8ef/orders

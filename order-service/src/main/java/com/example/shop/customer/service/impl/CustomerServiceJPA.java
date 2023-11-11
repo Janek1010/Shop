@@ -17,24 +17,18 @@ import java.util.UUID;
 public class CustomerServiceJPA implements CustomerService {
     private final CustomerRepository customerRepository;
 
-
     @Override
-    public Optional<Customer> findCustomerById(UUID uuid) {
-        return customerRepository.findById(uuid);
+    public Optional<Customer> find(UUID id) {
+        return customerRepository.findById(id);
     }
 
     @Override
-    public void createCustomer(Customer customer) {
+    public void create(Customer customer) {
         customerRepository.save(customer);
     }
 
     @Override
-    public void deleteCustomerById(UUID uuid) {
-        customerRepository.findById(uuid).ifPresent(customerRepository::delete);
-    }
-
-    @Override
-    public List<Customer> findAllCustomers() {
-        return customerRepository.findAll();
+    public void delete(UUID id) {
+        customerRepository.findById(id).ifPresent(customerRepository::delete);
     }
 }
