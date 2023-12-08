@@ -23,6 +23,7 @@ public class CustomerController {
     private final CustomerService customerService;
     @GetMapping(CUSTOMER_PATH)
     public ResponseEntity<GetCustomersResponse> getCustomers(){
+        System.out.println("zapytanko!");
         return ResponseEntity.ok(GetCustomersResponse.builder().customers(customerService.findAllCustomers().stream().map(customerMapper::customerToCustomerDto).toList()).build());
     }
     @GetMapping(CUSTOMER_PATH_ID)

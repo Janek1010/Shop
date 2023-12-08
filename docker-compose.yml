@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+
+  angular-shop:
+    image: angular-shop:1.0.0-SNAPSHOT
+    restart: always
+    environment:
+      API_URL: http://simple-rpg-gateway:8080/api
+    ports:
+      - "8087:80"

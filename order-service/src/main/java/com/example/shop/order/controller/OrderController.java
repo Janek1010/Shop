@@ -15,6 +15,8 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
+
 public class OrderController {
     public final String ORDER_PATH = "/api/orders";
     public final String ORDER_PATH_ID = ORDER_PATH + "/{orderId}";
@@ -47,7 +49,6 @@ public class OrderController {
     }
 
     @DeleteMapping(ORDER_PATH_ID)
-
     public ResponseEntity<Void> deleteOrder(@PathVariable("orderId") UUID uuid) {
         orderService.deleteOrderById(uuid);
         return ResponseEntity.noContent().build();

@@ -1,0 +1,39 @@
+<div *ngIf="order" class="container mt-4">
+  <h2 class="mb-4">Informacje o Zamówieniu</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <span class="font-weight-bold">ID:</span>
+    </div>
+    <div class="col-md-9">
+      <span>{{ order.id }}</span>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-3">
+      <span class="font-weight-bold">Nazwa Produktu:</span>
+    </div>
+    <div class="col-md-9">
+      <span>{{ order.productName }}</span>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-3">
+      <span class="font-weight-bold">Ilość:</span>
+    </div>
+    <div class="col-md-9">
+      <span>{{ order.quantity }}</span>
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-md-3">
+      <span class="font-weight-bold">Klient:</span>
+    </div>
+    <div class="col-md-9">
+      <span>{{ order.customer }}</span>
+    </div>
+  </div>
+</div>

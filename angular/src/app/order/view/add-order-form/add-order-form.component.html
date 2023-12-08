@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2>Dodaj nowe zamówienie</h2>
+  <form [formGroup]="orderForm" (ngSubmit)="addOrder()">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="productName">Nazwa Produktu:</label>
+      </div>
+      <div class="col-md-9">
+        <input type="text" id="productName" formControlName="productName" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-3">
+        <label for="quantity">Ilość:</label>
+      </div>
+      <div class="col-md-9">
+        <input type="text" id="quantity" formControlName="quantity" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col">
+        <button type="submit" class="btn btn-success">Dodaj zamówienie</button>
+      </div>
+    </div>
+  </form>
+</div>

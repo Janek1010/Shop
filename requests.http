@@ -58,3 +58,7 @@ DELETE http://localhost:8080/api/orders/62310089-a874-47e1-b0f1-0a54f0912112
 ### GET orders by customer
 
 GET http://localhost:8080/api/customers/2d9b1e8c-67c5-4188-a911-5f064a63d8ef/orders
+
+### test
+
+PUT http://localhost:8080/api/orders/28222129-38bf-49aa-af69-6daae4942d00

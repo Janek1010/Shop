@@ -1,0 +1,46 @@
+<div *ngIf="orderForm" class="container mt-4">
+  <h2>Edycja Zamówienia</h2>
+  <form [formGroup]="orderForm" (ngSubmit)="updateOrder()">
+    <div class="row">
+      <div class="col-md-3">
+        <label for="orderId">ID zamówienia:</label>
+      </div>
+      <div class="col-md-9">
+        <input type="text" id="orderId" formControlName="orderId" readonly class="form-control" />
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-3">
+        <label for="customerId">ID klienta:</label>
+      </div>
+      <div class="col-md-9">
+        <input type="text" id="customerId" formControlName="customerId" readonly class="form-control" />
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-3">
+        <label for="productName">Nazwa produktu:</label>
+      </div>
+      <div class="col-md-9">
+        <input type="text" id="productName" formControlName="productName" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <div class="col-md-3">
+        <label for="quantity">Ilość:</label>
+      </div>
+      <div class="col-md-9">
+        <input type="text" id="quantity" formControlName="quantity" class="form-control" />
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col">
+        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+      </div>
+    </div>
+  </form>
+</div>
