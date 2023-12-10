@@ -5,22 +5,38 @@ services:
     build:
       context: ./customer-service
       dockerfile: Dockerfile
-    image: customers-service:1.0.0-SNAPSHOT
     restart: always
     ports:
-      - "8080:8080"  # Map the container's 8082 port to the host's 8080 port
+      - "8081:8080"
 
-#  shop-customers:
-#    image: shop-customers:1.0.0-SNAPSHOT
-#    restart: always
-#    environment:
-#      SHOP_ORDER_URL: "http://shop-orders:8080"
-#
-#  shop-gateway:
-#    image: shop-gateway:1.0.0-SNAPSHOT
-#    restart: always
-#    environment:
-#      SHOP_CUSTOMER_URL: "http://shop-customers:8080"
-#      SHOP_ORDER_URL: "http://shop-orders:8080"
-#      SHOP_GATEWAY_HOST: "shop-gateway:8080"
-#
+  orders-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      SHOP_ORDER_URL: "http://customers-service:8081"
+    ports:
+      - "8082:8080"
+
+  shop-gateway:
+    build:
+      context: ./shop-gateway
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      SHOP_CUSTOMER_URL: "http://customers-service:8081"
+      SHOP_ORDER_URL: "http://orders-service:8082"
+      SHOP_GATEWAY_HOST: "shop-gateway:8080"
+    ports:
+      - "8080:8080"
+
+  shop-ng:
+    build:
+      context: ./angular
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      API_URL: http://shop-gateway:8080/api
+    ports:
+      - "8083:80"
