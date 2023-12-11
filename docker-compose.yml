@@ -24,8 +24,6 @@ services:
       SHOP_CUSTOMER_URL: "http://customers-service:8080"
       SHOP_ORDER_URL: "http://orders-service:8080"
       SHOP_GATEWAY_HOST: "shop-gateway:8080"
-    ports:
-      - "8080:8080"
 
   shop-ng:
     build:
