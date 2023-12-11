@@ -10,7 +10,6 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
 public class CustomerDefaultController {
     private final CustomerService customerService;
     @DeleteMapping("/api/customers/{customerId}")

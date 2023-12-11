@@ -19,6 +19,7 @@ ENV SHOP_GATEWAY_HOST=localhost:8080
 ENV SHOP_ORDER_URL=http://localhost:8081
 ENV SHOP_CUSTOMER_URL=http://localhost:8082
 
+
 EXPOSE 8080
 
 COPY target/shop-gateway-${VERSION}.jar /opt/shop-gateway/shop-gateway.jar

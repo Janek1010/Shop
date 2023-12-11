@@ -15,7 +15,6 @@ import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
 
 public class OrderController {
     public final String ORDER_PATH = "/api/orders";
@@ -44,6 +43,7 @@ public class OrderController {
 
     @PutMapping(ORDER_PATH_ID)
     public ResponseEntity<Void> putOrder(@PathVariable("orderId") UUID uuid, @RequestBody PutOrderRequest request) {
+        System.out.println("proba usuniecia");
         orderService.saveOrder(orderMapper.putOrderRequestToOrder(uuid, request));
         return ResponseEntity.ok().build();
     }

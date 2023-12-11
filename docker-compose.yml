@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  orders-service:
+    build:
+      context: ./order-service
+      dockerfile: Dockerfile
+    restart: always
+
   customers-service:
     build:
       context: ./customer-service
@@ -8,12 +14,6 @@ services:
     restart: always
     environment:
       SHOP_ORDER_URL: "http://orders-service:8080"
-
-  orders-service:
-    build:
-      context: ./order-service
-      dockerfile: Dockerfile
-    restart: always
 
   shop-gateway:
     build:
