@@ -6,14 +6,14 @@ services:
       context: ./customer-service
       dockerfile: Dockerfile
     restart: always
+    environment:
+      SHOP_ORDER_URL: "http://orders-service:8080"
 
   orders-service:
     build:
       context: ./order-service
       dockerfile: Dockerfile
     restart: always
-    environment:
-      SHOP_ORDER_URL: "http://customers-service:8080"
 
   shop-gateway:
     build:
