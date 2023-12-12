@@ -1,11 +1,38 @@
 version: '3'
 
 services:
+  customer-db:
+    image: postgres:16.1
+    restart: always
+    environment:
+      POSTGRES_DB: "customer_db"
+      POSTGRES_USER: "customer_user"
+      POSTGRES_PASSWORD: "customer_password"
+    volumes:
+      - customer-db-data:/var/lib/postgresql/data
+
+  order-db:
+    image: postgres:16.1
+    restart: always
+    environment:
+      POSTGRES_DB: "order_db"
+      POSTGRES_USER: "order_user"
+      POSTGRES_PASSWORD: "order_password"
+    volumes:
+      - order-db-data:/var/lib/postgresql/data
+
   orders-service:
     build:
       context: ./order-service
       dockerfile: Dockerfile
     restart: always
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://order-db:5432/order_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "order_user"
+      SPRING_DATASOURCE_PASSWORD: "order_password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
+
 
   customers-service:
     build:
@@ -14,6 +41,11 @@ services:
     restart: always
     environment:
       SHOP_ORDER_URL: "http://orders-service:8080"
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://customer-db:5432/customer_db"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_DATASOURCE_USERNAME: "customer_user"
+      SPRING_DATASOURCE_PASSWORD: "customer_password"
+      SPRING_JPA_DATABASE_PLATFORM: "org.hibernate.dialect.PostgreSQLDialect"
 
   shop-gateway:
     build:
@@ -34,3 +66,7 @@ services:
       API_URL: http://shop-gateway:8080/api
     ports:
       - "8083:80"
+
+volumes:
+  order-db-data:
+  customer-db-data:
